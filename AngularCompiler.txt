@@ -46,7 +46,7 @@ Templates get compiled into 2 sequence of instruction set.
 @Injectable => ngIntjectableDef 
 	It has a factory function which is responsible for creating the instance of the associated service 
 	For every dependency, it needs to be injected.
-	The factory function will call Ivy inject (ng.inject() ) instruction by giving a token and get back the 		dependency instance.
+	The factory function will call Ivy inject (ng.inject() ) instruction by giving a token and get back the 	dependency instance.
 
 Optimizabiity:
     Ivy leverages the JS ecosystem tools to provide optimisability
@@ -106,7 +106,7 @@ JIT compiler (View Engine)
 	Typescript code => tsc => js code => declarative code related to angular would still be available in
 		run time =>  compilation happens at run time in the browser.
  AOT ( ivy compiler)
-	Compiler takes declarative template + decorators => imperative code. so no more application angular code		shipped to browser.
+	Compiler takes declarative template + decorators => imperative code. so no more application angular code	shipped to browser.
 	Component meta data already added to ngComponentDef static field. 
 	Ivy allows us to ship the AOT compiled code to  npm 
 
