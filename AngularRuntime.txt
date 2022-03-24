@@ -109,7 +109,7 @@ ngAfterContentChecked
 view by view
 
 After template function invocation:
-	=>	refresh embedded views 
+	=> refresh embedded views 
 	=> flush all content hooks 
 	=> set host bindings 
 	=> check child component 
