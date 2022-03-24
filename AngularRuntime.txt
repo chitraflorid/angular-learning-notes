@@ -111,3 +111,7 @@ After template function invocation:
 	=> set host bindings 
 	=> check child component 
 	=> Flush all view hooks - bottom - up
+
+- Reference
+How Angular works | Kara Erickson | #AngularConnect
+https://www.youtube.com/watch?v=S0o-4yc2n-8&list=PLAw7NFdKKYpE-f-yMhP2WVmvTH2kBs00s&index=26
