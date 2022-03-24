@@ -103,12 +103,13 @@ Along with this, Angular adds some imperative code generated out of angular clas
 Translates the declarative template code into imperative instructions which are to be in browser.
     
 JIT compiler (View Engine)
-	Typescript code => tsc => js code => declarative code related to angular would still be available in
-		run time =>  compilation happens at run time in the browser.
- AOT ( ivy compiler)
-	Compiler takes declarative template + decorators => imperative code. so no more application angular code	shipped to browser.
-	Component meta data already added to ngComponentDef static field. 
-	Ivy allows us to ship the AOT compiled code to  npm 
+    Typescript code => tsc => js code => declarative code related to angular would still be available in
+    run time =>  compilation happens at run time in the browser.
+ AOT (ivy compiler)
+   Compiler takes declarative template + decorators => imperative code.
+   So no more application angular code shipped to browser.
+   Component meta data already added to ngComponentDef static field. 
+   Ivy allows us to ship the AOT compiled code to  npm 
 
 Ivy offers JIT / AOT interop
 
@@ -116,7 +117,8 @@ Compilation Model:
 ==================
 d.ts file (type declaration file) describes shape of the types declared in the original file.
 
-when we use NPM libraries, TS needs to have these .d.ts files to get to know what are the types are being imported 
+when we use NPM libraries, TS needs to have these .d.ts files 
+to get to know what are the types are being imported 
 
 Ivy changes the d.ts file and includes info abt the component that future compilations will need 
 generic type of component definition => selector, what inputs are etc  are added.
@@ -127,8 +129,9 @@ Features of Compiler:
 ====================
 1. NgModules Scope 
 	No explicit imports of the templates / components module  Compilation scope 
-	eg: app component declared in app module, all other components declared in the same module are accessible
-		in app component.
+	eg: app component declared in app module,
+	all other components declared in the same module are accessible
+	in app component.
 2. Export scopes
 	All the components / parts of the modules which are imported.
         Due to the above, tree shaking is acheivable.
@@ -143,7 +146,8 @@ Features of Compiler:
                 Function calls
                 Imports / Exports 
                   
-         DynamicValue () used for variables / properties whose values cant be evaluated during compilation
+         DynamicValue() used for variables / properties 
+	 whose values cant be evaluated during compilation.
          It helps the compiler throw a well formed error message.
 
 4.Template type-checking 
