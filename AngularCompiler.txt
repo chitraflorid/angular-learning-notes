@@ -23,9 +23,6 @@ Angular Compiler History:
     
     Tree shaking is difficult in dynamic component initiation
     ComponentFactoryResolver is a map of (component , componentFactory) 
-
-    its difficult to be tree shakable ahead of time 
-
       
 3. Ivy (Angular 8+)
 
