@@ -16,53 +16,55 @@ Directives: []
 });
 
 1. Application bootstrap
-Module set up => View Creation => Change Detection
-While bootstrapping the application, the framework is looking out for the bootstrap prop in @ngModule decorator.
-1. Root setup
+ Module set up => View Creation => Change Detection
+ While bootstrapping the application, the framework is looking out for the bootstrap prop in @ngModule decorator. 
+   Root setup:
+   =============
 	Locate root element => it takes the selector from the component def
 	    and then query for the selector using document.querySelector 
 	Instantiate the root component using component definition’s factory 
 	Render the root component using component definition’s template function
  2. View Creation
-  	DOM creation and directives’ instantiation 
-	Invoke component in create mode 
-		App.ngComponentDef.template(create, app);
-		InfoCard.ngComponentDef.template(create, info);
- 	template() :
-		Html template got transformed into template function  runtime need to call this with the relevant flag (create / update mode).
+  DOM creation and directives’ instantiation 
+  Invoke component in create mode 
+  App.ngComponentDef.template(create, app);
+  InfoCard.ngComponentDef.template(create, info);
+  template() :
+	Html template got transformed into template function  runtime need to call this with the relevant flag (create / update mode).
 	It's a function which has set of instructions which are implemented by angular framework.
-  	
 	Creation instructions and Update instructions
   
-  LView:
-  During creation of DOM, we keep track of them using an internal array data structure called LView.
+    LView:
+    ========
+  	During creation of DOM, we keep track of them using an internal array data structure called LView.
   	Reason for LView:
-		Later during change detection these elements might need to be updated. 
+	   Later during change detection these elements might need to be updated. 
         Referring the elements via DOM APIs may slow down the application performance. 
-		LVIew (Logical View): unique to each view / comp template instance 
+        LVIew (Logical View): unique to each view / comp template instance 
     
-    LView => [DOM elements, Binding Values, Directive instances]
-After each DOM node creation, the LView  gets updated with the relevant node info.
- LV will be created 1 per component instance.
-3. Directive Matching
-	During element creation, we are also matching the directive against the element which are created.
-	Directive matching process is expensive.this will happen only once per directive when first time 
-    its found in the component.
-	For further reference , this directive instance will get stored in a shared data structure
-      called TView (Template View)/
+         LView => [DOM elements, Binding Values, Directive instances]
+         After each DOM node creation, the LView  gets updated with the relevant node info.
+        LV will be created 1 per component instance.
+  Directive Matching:
+  ====================
+  During element creation, we are also matching the directive against the element which are created.
+  Directive matching process is expensive.this will happen only once per directive when first time 
+   its found in the component.
+   For further reference , this directive instance will get stored in a shared data structure
+     called TView (Template View)/
 
-TView:
- For storing the shared data between all instances of the view. ( 1 per component type )
- TView will be stored in componentDef
+   TView:
+   =======
+ 	For storing the shared data between all instances of the view. ( 1 per component type )
+ 	TView will be stored in componentDef
 
-Directive matching => once found => initiate using it’s factory() method and directiveInject(<directiveRef>).
-If not there , fall back to the Module Injector 
-
-it would take the token and first check the Directive Injector tree.
-It's a place to keep track of all added providers in the directive definition
+   Directive matching => once found => initiate using it’s factory() method and directiveInject(<directiveRef>).
+   If not there , fall back to the Module Injector 
+   it would take the token and first check the Directive Injector tree.
+   It's a place to keep track of all added providers in the directive definition
     
 3. Change Detection
-	It's lot more predictable as it runs CD from top to bottom.
+It's lot more predictable as it runs CD from top to bottom.
 update instructions would be executed from top to down.
 Advance instruction would be used to keep negotiate the elements which have bindings
 advance(1) => index @ LView 
