@@ -15,8 +15,7 @@ Factory: {},
 Directives: []
 });
 
-Application bootstrap
-======================
+1. Application bootstrap
 Module set up ===> View Creation ==> Change Detection
 While bootstrapping the application, the framework is looking out for the bootstrap prop in @ngModule decorator.
 1. Root setup
@@ -45,7 +44,7 @@ While bootstrapping the application, the framework is looking out for the bootst
     LView => [DOM elements, Binding Values, Directive instances]
 After each DOM node creation, the LView  gets updated with the relevant node info.
  LV will be created 1 per component instance.
-3. Directive Matching:
+3. Directive Matching
 	During element creation, we are also matching the directive against the element which are created.
 	Directive matching process is expensive.this will happen only once per directive when first time 
     its found in the component.
@@ -62,7 +61,7 @@ If not there , fall back to the Module Injector
 it would take the token and first check the Directive Injector tree.
 It's a place to keep track of all added providers in the directive definition
     
-3. Change Detection:
+3. Change Detection
 	It's lot more predictable as it runs CD from top to bottom.
 update instructions would be executed from top to down.
 Advance instruction would be used to keep negotiate the elements which have bindings
@@ -88,9 +87,7 @@ Nodes checked from top-to-bottom for directive inputs
 node checked for top to bottom for property or text bindings
 
 4. Lifecycle Hooks
-
-as part of change detection, these hooks are being executed.
-
+As part of change detection, these hooks are being executed.
 ngOnInit
 ngOnChanges 
 ngDoCheck 
