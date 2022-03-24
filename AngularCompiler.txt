@@ -46,7 +46,8 @@ Templates get compiled into 2 sequence of instruction set.
 @Injectable => ngIntjectableDef 
 	It has a factory function which is responsible for creating the instance of the associated service 
 	For every dependency, it needs to be injected.
-	The factory function will call Ivy inject (ng.inject() ) instruction by giving a token and get back the 	dependency instance.
+	The factory function will call Ivy inject (ng.inject()) 
+	instruction by giving a token and get back the dependency instance.
 
 Optimizabiity:
     Ivy leverages the JS ecosystem tools to provide optimisability
