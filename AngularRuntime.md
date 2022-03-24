@@ -1,5 +1,5 @@
-Ivy Angular Runtime
-===================
+# Ivy Angular Runtime
+
 This part of Angular code ships with application code to the browser and runs there in browser.
 Component code with decorator and template => compiler => Component Definition => Runtime => DOM.
 Component definitions are set of instructions which run time could execute.
@@ -15,16 +15,15 @@ Factory: {},
 Directives: []
 });
 
-1. Application bootstrap
+## 1. Application bootstrap
  Module set up => View Creation => Change Detection
  While bootstrapping the application, the framework is looking out for the bootstrap prop in @ngModule decorator. 
-   Root setup:
-   =============
+   ### Root setup
 	Locate root element => it takes the selector from the component def
 	    and then query for the selector using document.querySelector 
 	Instantiate the root component using component definition’s factory 
 	Render the root component using component definition’s template function
- 2. View Creation
+ ## 2. View Creation
   DOM creation and directives’ instantiation 
   Invoke component in create mode 
   App.ngComponentDef.template(create, app);
@@ -34,8 +33,7 @@ Directives: []
 	It's a function which has set of instructions which are implemented by angular framework.
 	Creation instructions and Update instructions
   
-    LView:
-    ========
+    ### LView
   	During creation of DOM, we keep track of them using an internal array data structure called LView.
   	Reason for LView:
 	   Later during change detection these elements might need to be updated. 
@@ -45,16 +43,16 @@ Directives: []
          LView => [DOM elements, Binding Values, Directive instances]
          After each DOM node creation, the LView  gets updated with the relevant node info.
         LV will be created 1 per component instance.
-  Directive Matching:
-  ====================
+  ### Directive Matching
+  
   During element creation, we are also matching the directive against the element which are created.
   Directive matching process is expensive.this will happen only once per directive when first time 
    its found in the component.
    For further reference , this directive instance will get stored in a shared data structure
      called TView (Template View)/
 
-   TView:
-   =======
+   ### TView
+   
  	For storing the shared data between all instances of the view. ( 1 per component type )
  	TView will be stored in componentDef
 
@@ -63,7 +61,7 @@ Directives: []
    it would take the token and first check the Directive Injector tree.
    It's a place to keep track of all added providers in the directive definition
     
-3. Change Detection
+## 3. Change Detection
 It's lot more predictable as it runs CD from top to bottom.
 update instructions would be executed from top to down.
 Advance instruction would be used to keep negotiate the elements which have bindings
@@ -78,8 +76,7 @@ Binding orders are not guaranteed within the nodes
 micro optimisation: 
 Property chaining 
 
-Pre Ivy Change detection:
-========================
+### Pre Ivy Change detection
 One full pass for directive input 
 And another pass for elements and text binding
 
@@ -87,7 +84,7 @@ Component tree checked from  top-to-bottom
 Nodes checked from top-to-bottom for directive inputs 
 node checked for top to bottom for property or text bindings
 
-4. Lifecycle Hooks
+##. Lifecycle Hooks
 As part of change detection, these hooks are being executed.
 ngOnInit
 ngOnChanges 
@@ -114,4 +111,4 @@ After template function invocation:
 
 - Reference
 How Angular works | Kara Erickson | #AngularConnect
-https://www.youtube.com/watch?v=S0o-4yc2n-8&list=PLAw7NFdKKYpE-f-yMhP2WVmvTH2kBs00s&index=26
+(https://www.youtube.com/watch?v=S0o-4yc2n-8&list=PLAw7NFdKKYpE-f-yMhP2WVmvTH2kBs00s&index=26)
