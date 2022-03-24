@@ -1,7 +1,7 @@
 Ivy Angular Runtime
 ===================
 This part of Angular code ships with application code to the browser and runs there in browser.
-Component code with decorator and template ==> compiler => Component Definition ==> Runtime => DOM.
+Component code with decorator and template => compiler => Component Definition => Runtime => DOM.
 Component definitions are set of instructions which run time could execute.
 
 ComponentName.ngComponentDef = defineComponent({
@@ -16,10 +16,10 @@ Directives: []
 });
 
 1. Application bootstrap
-Module set up ===> View Creation ==> Change Detection
+Module set up => View Creation => Change Detection
 While bootstrapping the application, the framework is looking out for the bootstrap prop in @ngModule decorator.
 1. Root setup
-	Locate root element ==> it takes the selector from the component def
+	Locate root element => it takes the selector from the component def
 	    and then query for the selector using document.querySelector 
 	Instantiate the root component using component definition’s factory 
 	Render the root component using component definition’s template function
@@ -55,7 +55,7 @@ TView:
  For storing the shared data between all instances of the view. ( 1 per component type )
  TView will be stored in componentDef
 
-Directive matching ==> once found => initiate using it’s factory() method and directiveInject(<directiveRef>).
+Directive matching => once found => initiate using it’s factory() method and directiveInject(<directiveRef>).
 If not there , fall back to the Module Injector 
 
 it would take the token and first check the Directive Injector tree.
@@ -65,11 +65,11 @@ It's a place to keep track of all added providers in the directive definition
 	It's lot more predictable as it runs CD from top to bottom.
 update instructions would be executed from top to down.
 Advance instruction would be used to keep negotiate the elements which have bindings
-advance(1) ==> index @ LView 
+advance(1) => index @ LView 
 
 need to keep track of 2 things
  current node => current LView  
-current binding => old bound value 
+ current binding => old bound value 
 
 Binding orders are not guaranteed within the nodes
 
@@ -81,8 +81,7 @@ Pre Ivy Change detection:
 One full pass for directive input 
 And another pass for elements and text binding
 
-
-Component tree checked from  top - to -bottom
+Component tree checked from  top-to-bottom
 Nodes checked from top-to-bottom for directive inputs 
 node checked for top to bottom for property or text bindings
 
@@ -91,22 +90,18 @@ As part of change detection, these hooks are being executed.
 ngOnInit
 ngOnChanges 
 ngDoCheck 
-
 => these 3 run after @Inputs checked
-
-node by node 
+   node by node 
 
 ngAfterViewInit 
 ngAfterViewChecked 
 => after view checked
-
-view by view 
+    view by view 
 
 ngAfterContentInit
 ngAfterContentChecked
 => After content checked
-
-view by view
+    view by view
 
 After template function invocation:
 	=> refresh embedded views 
