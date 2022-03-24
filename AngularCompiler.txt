@@ -10,8 +10,9 @@ Angular Compiler History:
  
  2. View Engine:(Angular 4+)
 	Template converted into list of rendering operations in the form of data structure instead of instructions.
-	There is a runtime component which traverses this data structure to create / delete. / update the Dom nodes
-    or execute the CD.
+	There is a runtime component which traverses this data structure to create / delete /
+		update the Dom nodes or execute the CD.
+    
     
     Pros:
       bundle size is optimised.
@@ -22,7 +23,8 @@ Angular Compiler History:
       
 3. Ivy (Angular 8+)
 
-	In addition to transpiling ts to js , it also parses the decorators and templates and generate some code that runtime can understand.
+	In addition to transpiling ts to js , it also parses the decorators and templates and generate some code
+		that runtime can understand.
 
 Angular decorators  like @component, @directive get compiled into static fields of their respective classes.
 Separate ngFactory file (View Engine) moved into the component and directive classes themselves.
@@ -46,7 +48,7 @@ Templates get compiled into 2 sequence of instruction set.
 @Injectable => ngIntjectableDef 
 	It has a factory function which is responsible for creating the instance of the associated service 
 	For every dependency, it needs to be injected.
-	The factory function will call Ivy inject (ng.inject() ) instruction by giving a token and get back the dependency instance 
+	The factory function will call Ivy inject (ng.inject() ) instruction by giving a token and get back the 		dependency instance.
 
 Optimizabiity:
     Ivy leverages the JS ecosystem tools to provide optimisability
@@ -102,7 +104,8 @@ Along with this, Angular adds some imperative code generated out of angular clas
 Translates the declarative template code into imperative instructions which are to be in browser.
     
 JIT compiler (View Engine)
-	Typescript code => tsc => js code => declarative code related to angular would still be available in run time =>  compilation happens at run time in the browser.
+	Typescript code => tsc => js code => declarative code related to angular would still be available in
+		run time =>  compilation happens at run time in the browser.
  AOT ( ivy compiler)
 	Compiler takes declarative template + decorators => imperative code. so no more application angular code shipped to browser.
 	Component meta data already added to ngComponentDef static field. 
@@ -125,7 +128,8 @@ Features of Compiler:
 ====================
 1. NgModules Scope 
 	No explicit imports of the templates / components module  Compilation scope 
-	eg: app component declared in app module, all other components declared in the same module are accessible in app component.
+	eg: app component declared in app module, all other components declared in the same module are accessible
+		in app component.
 2. Export scopes
 	All the components / parts of the modules which are imported.
         Due to the above, tree shaking is acheivable.
@@ -144,7 +148,9 @@ Features of Compiler:
          It helps the compiler throw a well formed error message.
 
 4.Template type-checking 
-  	Angular template expressions are transformed into TS code called “Type check blocks” along with some comments and numbers. 
+  	Angular template expressions are transformed into TS code called “Type check blocks”
+		along with some comments and numbers.
+	
        These numbers are offsets in the templates from where we got these expressions.
        - this was never emitted as JS .. never shown to the user / browser .
        this will be fed to typescript compiler (tsc)  and it will return errors if anything observed. 
