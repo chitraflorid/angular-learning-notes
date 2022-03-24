@@ -32,17 +32,17 @@ Runtime broken into set of individual instruction sets -> kind of assembly langu
 Templates get compiled into 2 sequence of instruction set.
   
   ### Instruction set are for 
-	DOM Creation
-      	data binding 
-      	Internationalization 
-     	Change detection 
-      	styling
-      	content projection
-      	Dependency injection 
-      	pipes 
-      	SVG 
-      	containers 
-      	Queries 
+   DOM Creation
+   Data binding 
+   Internationalization 
+   Change detection 
+   Styling
+   Content projection
+   Dependency injection 
+   Pipes 
+   SVG 
+   Containers 
+   Queries 
 ### @Injectable => ngIntjectableDef 
 	It has a factory function which is responsible for creating the instance of the associated service 
 	For every dependency, it needs to be injected.
@@ -53,13 +53,12 @@ Templates get compiled into 2 sequence of instruction set.
     Ivy leverages the JS ecosystem tools to provide optimisability
 
     Tree Shaking
-	Removal of dead code 
-        Code which not to be used in runtime , that will be removed.
+    Code which not to be used in runtime , that will be removed.
 ### Incrementally:
-	Speed up compilation process dramatically 
-      	Previous engines create global compilation.
-	They would compile the components and directives from external libraries which are being imported.
-      	Ivy implemented a rule called 'locality'. It won't compile the external lib's components and directives.
+    Speed up compilation process dramatically 
+    Previous engines create global compilation.
+    They would compile the components and directives from external libraries which are being imported.
+    Ivy implemented a rule called 'locality'. It won't compile the external lib's components and directives.
                 
 ## Design Goals:
 1.Simplification of angular’s internal working.
@@ -77,20 +76,20 @@ Program creation => Type checking => Emit
 Program Creation => Analysis => Resolve => Type checking => Emit 
 
 ### 1.Program creation
-	Typescript’s process of discovering all the source files and it starts from tsconfig.json file 
-      	Ngc compiler adds little more on this process by creating some ddtional files such ngFactory files.
+   Typescript’s process of discovering all the source files and it starts from tsconfig.json file 
+   Ngc compiler adds little more on this process by creating some ddtional files such ngFactory files.
 ### 2. Analysis
-       	Looking into all the classes with decorators 
-       	Component =>  template gets parsed
-       	Analysing them in isolation
+   Looking into all the classes with decorators 
+   Component =>  template gets parsed
+   Analysing them in isolation
 ### 3. Resolve
-        It does the above steps now in the context of larger picture
-        Component =>  module mapping 
-        Global decisions are made and optimizations are done based on that.
+   It does the above steps now in the context of larger picture
+   Component =>  module mapping 
+   Global decisions are made and optimizations are done based on that.
 ### 4. Type checking
-      Typescript check on errors and also report error on angular templates
+   Typescript check on errors and also report error on angular templates
       
-      Angular specific task during this step:
+   Angular specific task during this step:
       i)Tree shaking in angular source code  
       achieved via Compilation scope (ngModule declarations)
       and Export Scope of all imported components ( imports ).
@@ -104,7 +103,7 @@ Translates the declarative template code into imperative instructions which are 
 JIT compiler (View Engine)
     Typescript code => tsc => js code => declarative code related to angular would still be available in
     run time =>  compilation happens at run time in the browser.
- AOT (ivy compiler)
+AOT (ivy compiler)
    Compiler takes declarative template + decorators => imperative code.
    So no more application angular code shipped to browser.
    Component meta data already added to ngComponentDef static field. 
@@ -115,7 +114,7 @@ Ivy offers JIT / AOT interop
 ## Compilation Model:
 d.ts file (type declaration file) describes shape of the types declared in the original file.
 
-when we use NPM libraries, TS needs to have these .d.ts files 
+When we use NPM libraries, TS needs to have these .d.ts files 
 to get to know what are the types are being imported 
 
 Ivy changes the d.ts file and includes info abt the component that future compilations will need 
@@ -125,44 +124,42 @@ These pieces are part of components’ public API.
 
 ## Features of Compiler:
 ### 1. NgModules Scope 
-	No explicit imports of the templates / components module  Compilation scope 
-	eg: app component declared in app module,
-	all other components declared in the same module are accessible
-	in app component.
+  No explicit imports of the templates / components module  Compilation scope 
+   eg: app component declared in app module,
+   all other components declared in the same module are accessible
+   in app component.
 ### 2. Export scopes
-	All the components / parts of the modules which are imported.
-        Due to the above, tree shaking is acheivable.
+    All the components / parts of the modules which are imported.
+    Due to the above, tree shaking is acheivable.
 ### 3. Partial Evaluation
-	Angular compiler has typescript interpretor 
-        Compiler runs almost the ts code which we write , in order to evaluate the following:
-        	Property chains (foo.bar.baz)
-                Literals (objects, arrays)
-                Constans/ Variables
-                Binary / ternary / logic expressions 
-                String templates 
-                Function calls
-                Imports / Exports 
+    Angular compiler has typescript interpretor 
+    Compiler runs almost the ts code which we write , in order to evaluate the following:
+       Property chains (foo.bar.baz)
+       Literals (objects, arrays)
+       Constans/ Variables
+       Binary / ternary / logic expressions 
+       String templates 
+       Function calls
+       Imports / Exports 
                   
-         DynamicValue() used for variables / properties 
-	 whose values cant be evaluated during compilation.
-         It helps the compiler throw a well formed error message.
+  DynamicValue() used for variables / properties whose values cant be evaluated during compilation.
+  It helps the compiler throw a well formed error message.
 
 ### 4.Template type-checking 
-  	Angular template expressions are transformed into TS code called “Type check blocks”
-		along with some comments and numbers.
+ Angular template expressions are transformed into TS code called “Type check blocks”
+ along with some comments and numbers.
 	
-       These numbers are offsets in the templates from where we got these expressions.
-       - this was never emitted as JS .. never shown to the user / browser .
-       this will be fed to typescript compiler (tsc)  and it will return errors if anything observed. 
-       those errors will be shown to the developer mapped with the context of the template.
+ These numbers are offsets in the templates from where we got these expressions.
+   - this was never emitted as JS .. never shown to the user / browser .
+    this will be fed to typescript compiler (tsc)  and it will return errors if anything observed. 
+    those errors will be shown to the developer mapped with the context of the template.
 
-       Refined error message provided for template type checking
+  Refined error message provided for template type checking
        
-       Template type checking for *ngFor:
-       	type checking feature implemented for *ngFor loop variable
+  Template type checking for *ngFor:
+  type checking feature implemented for *ngFor loop variable
 
                 
-                - Reference 
-		[Deep Dive into the Angular Compiler | Alex Rickabaugh | #AngularConnect]
-		(https://www.youtube.com/watch?v=anphffaCZrQ&list=PLAw7NFdKKYpE-f-yMhP2WVmvTH2kBs00s&index=2)
+     - Reference 
+     [Deep Dive into the Angular Compiler | Alex Rickabaugh | #AngularConnect](https://www.youtube.com/watch?v=anphffaCZrQ&list=PLAw7NFdKKYpE-f-yMhP2WVmvTH2kBs00s&index=2)
         
