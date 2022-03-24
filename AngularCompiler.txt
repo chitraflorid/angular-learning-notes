@@ -5,8 +5,8 @@ Angular Compiler History:
 	ngFactory file generated from the html template
 
 	Cons:
-		Generated template code is too verbose.
-		Added too many bytes / too much overhead to the bundle.
+	    Generated template code is too verbose.
+	    Added too many bytes / too much overhead to the bundle.
  
  2. View Engine:(Angular 4+)
 	Template converted into list of rendering operations in the form of data structure instead of instructions.
