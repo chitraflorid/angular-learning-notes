@@ -1,2 +1,2 @@
 # angular-learning-notes
-Learning notes taken during my Angular's under the hood exploration.
+Learning notes taken during my exploration of Angular's internals.
