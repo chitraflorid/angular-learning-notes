@@ -33,7 +33,7 @@ Directives: []
 	It's a function which has set of instructions which are implemented by angular framework.
 	Creation instructions and Update instructions
   
-    ### LView
+   ### LView
   	During creation of DOM, we keep track of them using an internal array data structure called LView.
   	Reason for LView:
 	   Later during change detection these elements might need to be updated. 
