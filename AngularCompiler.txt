@@ -161,5 +161,7 @@ Features of Compiler:
        	type checking feature implemented for *ngFor loop variable
 
                 
-                
+                - Reference 
+		Deep Dive into the Angular Compiler | Alex Rickabaugh | #AngularConnect
+		https://www.youtube.com/watch?v=anphffaCZrQ&list=PLAw7NFdKKYpE-f-yMhP2WVmvTH2kBs00s&index=2
         
