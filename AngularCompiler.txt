@@ -12,8 +12,6 @@ Angular Compiler History:
 	Template converted into list of rendering operations in the form of data structure instead of instructions.
 	There is a runtime component which traverses this data structure to create / delete /
 		update the Dom nodes or execute the CD.
-    
-    
     Pros:
       bundle size is optimised.
     
@@ -24,7 +22,7 @@ Angular Compiler History:
 3. Ivy (Angular 8+)
 
 	In addition to transpiling ts to js , it also parses the decorators and templates and generate some code
-		that runtime can understand.
+	  that runtime can understand.
 
 Angular decorators  like @component, @directive get compiled into static fields of their respective classes.
 Separate ngFactory file (View Engine) moved into the component and directive classes themselves.
@@ -63,7 +61,7 @@ Incrementally:
       	Ivy implemented a rule called 'locality'. It won't compile the external lib's components and directives.
                 
 Design Goals:
-===========
+=============
 1.Simplification of angular’s internal working.
     
 2. Remove complexities in how we compile the applications
