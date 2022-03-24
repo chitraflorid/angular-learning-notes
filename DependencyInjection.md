@@ -17,9 +17,9 @@
     this class should use.
    ## Pros
    ### Configurability
-		    Switching diff type of DB  service implementation to be injected  
+       Switching diff type of DB  service implementation to be injected  
    ### Testability
-	      Services can easily be mocked to run unit test cases
+	Services can easily be mocked to run unit test cases
     Loosely coupled rather than concrete implementation using interfaces
     Maintainability and flexibility
   ### Singleton service
