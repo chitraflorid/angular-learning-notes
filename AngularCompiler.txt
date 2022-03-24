@@ -1,5 +1,3 @@
-Angular Compiler :
-==================
 Angular Compiler History:
 =========================
 1. Template Compiler :  (Angular 2+) released in 2016 
