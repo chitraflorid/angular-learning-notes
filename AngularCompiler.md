@@ -62,7 +62,6 @@ Templates get compiled into 2 sequence of instruction set.
       	Ivy implemented a rule called 'locality'. It won't compile the external lib's components and directives.
                 
 ## Design Goals:
-=============
 1.Simplification of angular’s internal working.
     
 2. Remove complexities in how we compile the applications
@@ -72,11 +71,9 @@ how these parts work together and depend on each other at run time.
 Angular compilation is an incremental process which provides flexible technical foundation for angular apps.
 
 ### Phases of Typescript compiler:
-==============================
 Program creation => Type checking => Emit 
 
 ## Phases of Angular Compiler:
-===========================
 Program Creation => Analysis => Resolve => Type checking => Emit 
 
 ### 1.Program creation
@@ -94,9 +91,10 @@ Program Creation => Analysis => Resolve => Type checking => Emit
       Typescript check on errors and also report error on angular templates
       
       Angular specific task during this step:
-      	Tree shaking in angular source code => achieved via Compilation scope (ngModule declarations)
-		and Export Scope of all imported components ( imports ).
-      	Surface the errors in the structure of the application
+      i)Tree shaking in angular source code  
+      achieved via Compilation scope (ngModule declarations)
+      and Export Scope of all imported components ( imports ).
+      ii)Surface the errors in the structure of the application
 ### 5. Emit
     Low level JS creation done after series of transformation - JS is 
 ready to run in the browser 
@@ -115,7 +113,6 @@ JIT compiler (View Engine)
 Ivy offers JIT / AOT interop
 
 ## Compilation Model:
-==================
 d.ts file (type declaration file) describes shape of the types declared in the original file.
 
 when we use NPM libraries, TS needs to have these .d.ts files 
@@ -127,7 +124,6 @@ Allows the future compiler to make use of it .
 These pieces are part of components’ public API.
 
 ## Features of Compiler:
-====================
 ### 1. NgModules Scope 
 	No explicit imports of the templates / components module  Compilation scope 
 	eg: app component declared in app module,
