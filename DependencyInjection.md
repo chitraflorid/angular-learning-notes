@@ -2,14 +2,12 @@
 # Dependency Injection
     Based on Dependency inversion principle which is the last one of SOLID principles.
     An architectural design pattern which solves the following primary problems.
-      1. Testability
+      1. Testability (Not mockable)
       2. Dependency Resolving
-        
-        Manual instantiation of dependencies
-            Unique instances 
-            Embedded instantion code
-            Not mockable
-            Hidden dependcies
+      3. Manual instantiation of dependencies
+      4. Unique instances 
+      5. Embedded instantion code
+      6. Hidden dependcies
     DI solves dependency resolving through the help of DI container.
     Dependency instances are being injected into the consumers.
     It would be easier to mock those instances during unit test cases 
