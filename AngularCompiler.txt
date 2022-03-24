@@ -106,7 +106,7 @@ JIT compiler (View Engine)
 	Typescript code => tsc => js code => declarative code related to angular would still be available in
 		run time =>  compilation happens at run time in the browser.
  AOT ( ivy compiler)
-	Compiler takes declarative template + decorators => imperative code. so no more application angular code 		shipped to browser.
+	Compiler takes declarative template + decorators => imperative code. so no more application angular code		shipped to browser.
 	Component meta data already added to ngComponentDef static field. 
 	Ivy allows us to ship the AOT compiled code to  npm 
 
