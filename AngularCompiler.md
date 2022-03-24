@@ -1,6 +1,5 @@
-#Angular Compiler History:
-=========================
-## 1. Template Compiler :  (Angular 2+) released in 2016 
+# Angular Compiler History
+## 1.Template Compiler (Angular 2+) released in 2016 
  	compiles html template into generated JS code to both render and Change detection at run time.
 	ngFactory file generated from the html template
 
@@ -8,7 +7,7 @@
 	    Generated template code is too verbose.
 	    Added too many bytes / too much overhead to the bundle.
  
- ## 2. View Engine:(Angular 4+)
+ ## 2.View Engine (Angular 4+)
 	Template converted into list of rendering operations in the form of data structure instead of instructions.
 	There is a runtime component which traverses this data structure to create / delete /
 		update the Dom nodes or execute the CD.
@@ -19,7 +18,7 @@
     	Tree shaking is difficult in dynamic component initiation
     	ComponentFactoryResolver is a map of (component , componentFactory) 
       
-## 3. Ivy (Angular 8+)
+## 3.Ivy (Angular 8+)
 
 	In addition to transpiling ts to js , it also parses the decorators and templates and generate some code
 	  that runtime can understand.
