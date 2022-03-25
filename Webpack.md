@@ -10,10 +10,9 @@ The ultimate goal of webpack is to unify all these different sources and module 
 Webpack is extremely modular. What makes Webpack great is that it lets plugins inject themselves into more places in the build process when compared to alternatives like browserify and requirejs. Many things that may seem built into the core are just plugins that are loaded by default and can be overridden (i.e. the CommonJS require() parser).
 
 ![image](https://user-images.githubusercontent.com/12800370/160075184-987192f2-7c2d-4804-b421-9e6467078623.png)
-
 Image courtesy: https://devdocs.prestashop.com/1.7/themes/getting-started/asset-management/webpack/
 
-Evolution of JS module system led to the birth of Module bundlers:
+## Evolution of JS module system led to the birth of Module bundlers:
 
 ![image](https://user-images.githubusercontent.com/12800370/160075848-1c5bd854-7174-422c-bead-ed32080586f1.png)
 ![image](https://user-images.githubusercontent.com/12800370/160075876-5f033cf3-421d-4530-92b6-da206cac08d5.png)
