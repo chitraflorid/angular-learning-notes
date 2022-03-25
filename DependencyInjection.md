@@ -28,7 +28,8 @@
     Used string as keys for storing the DI Token.
     Single global container 
     
-    String tokens are converted into their string value by calling toString()
+    String tokens are nothing but the service/factory names 
+    which are converted into their string value by calling toString()
     on them and then the respective dependencies list are extracted using regExp.
     Required min safing with annotations 
 
