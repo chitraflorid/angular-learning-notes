@@ -25,7 +25,7 @@
     
  # Angular DI History
   ## Angular JS
-    Used string as keys for storing the  
+    Used string as keys for storing the DI Token.
     Single global container 
     
     String tokens are converted into their string value by calling toString()
