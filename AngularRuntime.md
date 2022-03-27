@@ -80,9 +80,9 @@ Property chaining
 One full pass for directive input 
 And another pass for elements and text binding
 
-Component tree checked from  top-to-bottom
-Nodes checked from top-to-bottom for directive inputs 
-node checked for top to bottom for property or text bindings
+Component tree checked from top-to-bottom.
+Nodes checked from top-to-bottom for directive inputs.
+node checked from top to bottom for property or text bindings.
 
 ##. Lifecycle Hooks
 As part of change detection, these hooks are being executed.
